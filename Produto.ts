@@ -1,43 +1,8 @@
-class Produto{
-    private nome : string;
-    private preco : number;
-    private tempoPrep : number;
-    private quantidade : number;
-
-    public constructor(nome : string, preco : number, tempoPrep : number, quantidade : number){
-        this.nome = nome;
-        this.preco = preco;
-        this.tempoPrep = tempoPrep;
-        this.quantidade = quantidade;
-    }
-    public getNome(): string{
-        return this.nome;
-    }
-    public setNome(nome : string): void{
-        this.nome = nome;
-    }
-    public getPreco(): number{
-        return this.preco;
-    }
-    public setPreco(preco : number): void{
-        this.preco = preco;
-    }
-    public getTempoPrep(): number{
-        return this.tempoPrep;
-    }
-    public setTempoPrep(tempoPrep: number): void{
-        this.tempoPrep = tempoPrep;
-    }
-    public getquantidade(): number{
-        return this.quantidade;
-    }
-    public setquantidade(quantidade : number): void{
-        this.preco = quantidade;
-    }
-    public vender(): void{
-        this.quantidade -= 1;
-    }
-    public adicionar(quantidade : number ): void{
-        this.quantidade += quantidade;
-    }
+export interface Produto{
+    getNome(): string; // retona o nome do produto
+    setNome(nome : string): void; // edita o nome do produto
+    getPreco(): number; // retorna o preco do produto
+    setPreco(preco : number); // edita o preco do produto
+    getTempoPrep(): number;// retorna o tempo de preparo
+    setTempoPrep(tempoPrep: number): void; // edita o tempo de preparo
 }
