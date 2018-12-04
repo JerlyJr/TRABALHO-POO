@@ -1,21 +1,29 @@
 import {Produto} from "./Produto";
 export class ProdutoImpl implements Produto{
-    private nome : string;
+    private id : number; 
+    private nomeProduto : string;
     private descricao: string;
     private preco : number;
-    private tempoPrep : number;
+    private tempoPreparo : number;
 
-    public constructor(nome : string,descricao: string, preco : number, tempoPrep : number){
-        this.nome = nome;
+    public constructor(id : number,nomeProduto : string,descricao: string, preco : number, tempoPreparo : number){
+        this.id = id
+        this.nomeProduto = nomeProduto;
         this.descricao = descricao;
         this.preco = preco;
-        this.tempoPrep = tempoPrep;
+        this.tempoPreparo = tempoPreparo;
     }
-    public getNome(): string{
-        return this.nome;
+    public getId(): number{
+        return this.id;
     }
-    public setNome(nome : string): void{
-        this.nome = nome;
+    public setId(id : number): void{
+        this.id = id;
+    }
+    public getNomeProduto(): string{
+        return this.nomeProduto;
+    }
+    public setNomeProduto(nomeProduto : string): void{
+        this.nomeProduto = nomeProduto;
     }
     public getDescricao(): string {
         return this.descricao;
@@ -29,10 +37,20 @@ export class ProdutoImpl implements Produto{
     public setPreco(preco : number): void{
         this.preco = preco;
     }
-    public getTempoPrep(): number{
-        return this.tempoPrep;
+    public getTempoPreparo(): number{
+        return this.tempoPreparo;
     }
-    public setTempoPrep(tempoPrep: number): void{
-        this.tempoPrep = tempoPrep;
+    public setTempoPreparo(tempoPrep: number): void{
+        this.tempoPreparo = tempoPrep;
+    }
+    public toString(): string{
+        let str : string =''
+        str += this.nomeProduto + "\n";
+        str += 'Descrição: ' + this.descricao + "\n";
+        str += 'Preço: R$' + this.preco + "\n";
+        str += 'Tempo de Preparo: ' + this.tempoPreparo + 'min'+ "\n";
+        str += 'Identificação: ' + this.id + '\n'
+        str += "-------------------------------------------------"+ '\n';
+        return str;
     }
 }

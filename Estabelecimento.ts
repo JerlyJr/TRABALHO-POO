@@ -1,7 +1,7 @@
 import {Usuario} from './Usuario';
 import { Pedido } from './Pedido';
 import {ProdutoImpl} from "./ProdutoImpl";
-class Estabelecimento extends Usuario{
+ export class Estabelecimento extends Usuario{
     private cardapio : ProdutoImpl[];
     private taxa : number;
     private reputacao : number;
@@ -15,14 +15,27 @@ class Estabelecimento extends Usuario{
             this.reputacao = 0
             this.pedidos = []
         }
-    public adicionarCardapio(nome : string,descricao: string, preco : number, tempoPrep : number): void{
-        this.cardapio.push(new ProdutoImpl(nome,descricao,preco,tempoPrep));
+    public getCardapio(): ProdutoImpl[]{
+        return this.cardapio
+    }
+    public adicionarCardapio(id : number, nome : string,descricao: string, preco : number, tempoPrep : number): void{
+        this.cardapio.push(new ProdutoImpl(id,nome,descricao,preco,tempoPrep));
     }
     public removerCardapio(): void{
         this.cardapio.pop();
     }
-    public retornarCardapio(): ProdutoImpl[]{
-        return this.cardapio
+    public retornarCardapio(): string{
+        let str: string = "-------------------------------------------------"+ '\n';
+        str += '|' + this.getNome() + '|' + '\n';
+        str += "-------------------------------------------------"+ '\n';
+        return str + this.cardapio.toString()
+    }
+    public mostrarEstabelecimento(): string{
+        let sta : string = ''
+        sta += '~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~'+`'\n`;
+        sta += this.getNome()+ '\n';
+        sta += '~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~'+`'\n`;
+        return sta
     }
 
 }
